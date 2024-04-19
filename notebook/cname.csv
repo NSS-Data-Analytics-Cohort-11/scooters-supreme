@@ -1,0 +1,15 @@
+,companyname,source_table
+0,Bird,trips
+1,Bird,scooters
+2,Bolt,trips
+3,Bolt,scooters
+4,Gotcha,trips
+5,Gotcha,scooters
+6,Jump,trips
+7,Jump,scooters
+8,Lime,trips
+9,Lime,scooters
+10,Lyft,trips
+11,Lyft,scooters
+12,Spin,trips
+13,Spin,scooters
