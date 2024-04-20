@@ -39,7 +39,7 @@ FROM scooters
 SELECT COUNT(sumdgroup)
 FROM scooters
 WHERE sumdgroup = 'bicycle';
---26529 bicycles
+--26529 bicycle locations represented in table
 
 SELECT COUNT(sumdgroup)
 FROM scooters
@@ -61,3 +61,26 @@ WHERE latitude = 0.000000
 OR longitude = 0.000000
 GROUP BY  companyname
 --all 0 values for lat and long are from Gotcha scooters
+
+--Question 1 (Nyssa)
+SELECT companyname, count(DISTINCT(sumdid))
+FROM scooters
+GROUP BY companyname
+
+--how many bicycles?
+SELECT DISTINCT sumdid, companyname, sumdgroup 
+FROM scooters 
+WHERE sumdgroup = 'bicycle'
+--answer: 6
+-- "Standard2UGJKREVB53HT"
+-- "Standard5JXOV277MCWID"
+-- "StandardNPOOZNUSGAXZN"
+-- "StandardNUTLLXP4G37OI"
+-- "StandardNW5HJFO4R32LY"
+-- "StandardZPUQESHVPP74J"
+
+SELECT *
+FROM trips
+WHERE sumdid !=
+
+
