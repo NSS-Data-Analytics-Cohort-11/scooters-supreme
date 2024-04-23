@@ -79,8 +79,11 @@ WHERE sumdgroup = 'bicycle'
 -- "StandardNW5HJFO4R32LY"
 -- "StandardZPUQESHVPP74J"
 
+--remove bicycles from trips table
 SELECT *
 FROM trips
-WHERE sumdid !=
+WHERE sumdid NOT IN ('Standard2UGJKREVB53HT', 'Standard5JXOV277MCWID', 'StandardNPOOZNUSGAXZN', 'StandardNUTLLXP4G37OI', 'StandardNW5HJFO4R32LY', 'StandardNW5HJFO4R32LY', 'StandardZPUQESHVPP74J' )
+--565522 rows
+
 
 
