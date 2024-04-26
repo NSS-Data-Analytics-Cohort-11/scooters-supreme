@@ -62,10 +62,7 @@ OR longitude = 0.000000
 GROUP BY  companyname
 --all 0 values for lat and long are from Gotcha scooters
 
---Question 1 (Nyssa)
-SELECT companyname, count(DISTINCT(sumdid))
-FROM scooters
-GROUP BY companyname
+
 
 --how many bicycles?
 SELECT DISTINCT sumdid, companyname, sumdgroup 
@@ -85,5 +82,22 @@ FROM trips
 WHERE sumdid NOT IN ('Standard2UGJKREVB53HT', 'Standard5JXOV277MCWID', 'StandardNPOOZNUSGAXZN', 'StandardNUTLLXP4G37OI', 'StandardNW5HJFO4R32LY', 'StandardNW5HJFO4R32LY', 'StandardZPUQESHVPP74J' )
 --565522 rows
 
+--Question 1: During this period, seven companies offered scooters. How many scooters did each company have in this time frame? 
+SELECT companyname, count(DISTINCT(sumdid))
+FROM scooters
+WHERE sumdgroup NOT LIKE 'bicycle'
+GROUP BY companyname
+--answer: 
+-- "Bird"	3860
+-- "Bolt"	360
+-- "Gotcha"	224
+-- "Jump"	1210
+-- "Lime"	1818
+-- "Lyft"	1735
+-- "Spin"	805
 
-
+-- 1. Did the number for each company change over time?
+SELECT companyname, COUNT(DISTINCT(sumdid)), concat(EXTRACT(Year from pubdatetime),'-',EXTRACT(Month from pubdatetime), '-', EXTRACT(Day from pubdatetime)) AS date
+            FROM scooters
+            WHERE sumdgroup NOT LIKE 'bicycle'
+            GROUP BY companyname, date;
