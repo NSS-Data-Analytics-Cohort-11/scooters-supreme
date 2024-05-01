@@ -101,3 +101,5 @@ SELECT companyname, COUNT(DISTINCT(sumdid)), concat(EXTRACT(Year from pubdatetim
             FROM scooters
             WHERE sumdgroup NOT LIKE 'bicycle'
             GROUP BY companyname, date;
+			
+
